@@ -39,25 +39,25 @@ public class App {
     Stack<Seat> redoStack = new Stack<>();
 
     public App() {
-        homeWindowImg = new ImageIcon("../imgs/homeWindowImg.jpg").getImage();
+        homeWindowImg = new ImageIcon("imgs/homeWindowImg.jpg").getImage();
         homeWindow = new JFrame();
         buttons = new JButton[5];
 
-        cinemaIcon = new ImageIcon(new ImageIcon("../imgs/cinema.png").getImage()
+        cinemaIcon = new ImageIcon(new ImageIcon("imgs/cinema.png").getImage()
                 .getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH));
 
-        concertIcon = new ImageIcon(new ImageIcon("../imgs/concert.png").getImage()
+        concertIcon = new ImageIcon(new ImageIcon("imgs/concert.png").getImage()
                 .getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH));
 
-        tournamentIcon = new ImageIcon(new ImageIcon("../imgs/tournament.png").getImage()
+        tournamentIcon = new ImageIcon(new ImageIcon("imgs/tournament.png").getImage()
                 .getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH));
 
-        creditsIcon = new ImageIcon(new ImageIcon("../imgs/credits.png").getImage()
+        creditsIcon = new ImageIcon(new ImageIcon("imgs/credits.png").getImage()
                 .getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH));
 
-        exitIcon = new ImageIcon(new ImageIcon("../imgs/exit.png").getImage()
+        exitIcon = new ImageIcon(new ImageIcon("imgs/exit.png").getImage()
                 .getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH));
-        seatIcon = new ImageIcon(new ImageIcon("../imgs/seat.png").getImage()
+        seatIcon = new ImageIcon(new ImageIcon("imgs/seat.png").getImage()
                 .getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH));
 
         initializeGUI();
@@ -108,11 +108,11 @@ public class App {
         Scanner input;
 
         if (category.equals("movies")) {
-            input = new Scanner(new File("../dataset/movies.txt"));
+            input = new Scanner(new File("dataset/movies.txt"));
         } else if (category.equals("concerts")) {
-            input = new Scanner(new File("../dataset/concerts.txt"));
+            input = new Scanner(new File("dataset/concerts.txt"));
         } else if (category.equals("tournaments")) {
-            input = new Scanner(new File("../dataset/tournaments.txt"));
+            input = new Scanner(new File("dataset/tournaments.txt"));
         } else {
             return;
         }
@@ -137,7 +137,7 @@ public class App {
     @SuppressWarnings("unchecked")
     public void loadSeats(String fileName) throws Exception {
         seats = new LinkedList<>();
-        File file = new File("../savedFiles/" + fileName + ".dat");
+        File file = new File("savedFiles/" + fileName + ".dat");
 
         if (file.exists()) {
             try {
@@ -159,7 +159,7 @@ public class App {
     public void saveSeatsToFile(LinkedList<Seat> seats, String movieTitle) {
         try {
             ObjectOutputStream write = new ObjectOutputStream(
-                    new FileOutputStream("../savedFiles/" + movieTitle + ".dat"));
+                    new FileOutputStream("savedFiles/" + movieTitle + ".dat"));
 
             write.writeObject(seats);
             write.close();
